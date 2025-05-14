@@ -33,7 +33,9 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// Gets the date and time of the last update to the product's information.
         /// </summary>
-        public DateTime? UpdatedAt { get; set; }        
+        public DateTime? UpdatedAt { get; set; }    
+        
+        public SaleItens? SaleItens { get; set; }
 
         /// <summary>
         /// Gets the unique identifier of the product.

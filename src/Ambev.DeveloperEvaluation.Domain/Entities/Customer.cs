@@ -35,6 +35,8 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// </summary>
         public DateTime? UpdatedAt { get; set; }
 
+        public Sale Sale { get; set; }
+
         /// <summary>
         /// Gets the unique identifier of the customer.
         /// </summary>

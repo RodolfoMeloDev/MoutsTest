@@ -25,6 +25,10 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// </summary>
         public string CustomerId { get; set; } = string.Empty;
 
+        public Customer? Customer { get; set; }
+
+        public ICollection<SaleItens>? Itens { get; set; }
+
         /// <summary>
         /// Gets the total sale
         /// Must not be zero or negative.
@@ -44,19 +48,14 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         public SaleStatus Status { get; set; } = SaleStatus.Active;
 
         /// <summary>
-        /// Gets the date and time when the product was created.
+        /// Gets the date and time when the sale was created.
         /// </summary>
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// Gets the date and time of the last update to the product's information.
+        /// Gets the date and time of the last update to the sale's information.
         /// </summary>
         public DateTime? UpdatedAt { get; set; }
-
-        /// <summary>
-        /// Gets the date and time of the last update to the product's information.
-        /// </summary>
-        public List<SaleItens> Itens { get; set; } = new List<SaleItens>();
 
         /// <summary>
         /// Gets the unique identifier of the sale.

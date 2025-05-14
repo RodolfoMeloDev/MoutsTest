@@ -18,15 +18,15 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// Gets the unique identifier by sale
         /// Must not be null or empty.
         /// </summary>
-        public string SaleId {  get; set; } = string.Empty;
-        public Sale Sale { get; set; } = new Sale();
+        public Guid SaleId { get; set; } = Guid.Empty;
+        public Sale? Sale { get; set; }
 
         /// <summary>
         /// Gets the unique identifier by product
         /// Must not be null or empty.
         /// </summary>
         public string ProductId { get; set; } = string.Empty;
-        public Product Product { get; set; } = new Product();
+        public Product? Product { get; set; }
 
         /// <summary>
         /// Gets the amount itens

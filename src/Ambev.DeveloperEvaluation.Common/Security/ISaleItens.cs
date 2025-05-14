@@ -15,7 +15,7 @@
         /// Obtém o identificador do pedido.
         /// </summary>
         /// <returns>O ID do pedido como um strings.</returns>
-        public string SaleId { get; }
+        public Guid SaleId { get; }
 
         /// <summary>
         /// Obtém o identificador do produto.
