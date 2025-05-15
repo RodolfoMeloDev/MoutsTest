@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ambev.DeveloperEvaluation.Common.Security
+﻿namespace Ambev.DeveloperEvaluation.Common.Security
 {
     /// <summary>
     /// Define o contrato para representação do pedido.
@@ -18,10 +12,16 @@ namespace Ambev.DeveloperEvaluation.Common.Security
         public string Id { get; }
 
         /// <summary>
+        /// Obtém o número de venda
+        /// </summary>
+        /// <returns>O número da venda como um inteiro.</returns>
+        public int OrderSale { get; }
+
+        /// <summary>
         /// Obtém a data/hora do pedido.
         /// </summary>
         /// <returns>A Data/Hora do pedido como um DateTime.</returns>
-        public DateTime OrderSale { get; }
+        public DateTime DateOrderSale { get; }
 
         /// <summary>
         /// Obtém do cliente do pedido.

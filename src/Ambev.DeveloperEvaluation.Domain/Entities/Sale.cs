@@ -13,11 +13,13 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
             CreatedAt = DateTime.UtcNow;
         }
 
+        public int OrderSale { get; set; }
+
         /// <summary>
         /// Gets the datetime do sale
         /// Must be null date today.
         /// </summary>
-        public DateTime OrderSale {  get; set; }
+        public DateTime DateOrderSale {  get; set; }
 
         /// <summary>
         /// Gets the customer's ID
