@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.Application.Customer.CreateCustomer
 {
-    public class CreateCustomerValidator : AbstractValidator<CreateCustomerCommand>
+    public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
-        public CreateCustomerValidator()
+        public CreateCustomerCommandValidator()
         {
             RuleFor(user => user.Name).NotEmpty().Length(3, 50);
             RuleFor(user => user.Status).NotEqual(CustomerStatus.Unknown);

@@ -1,4 +1,5 @@
 ﻿using Ambev.DeveloperEvaluation.Application.Customer.CreateCustomer;
+using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.WebApi.Features.Customer.CreateCustomer;
 using AutoMapper;
 
@@ -9,7 +10,7 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Customer.UpdateCustomer
         public UpdateCustomerProfile()
         {
             CreateMap<UpdateCustomerRequest, CreateCustomerCommand>();
-            CreateMap<Domain.Entities.Customer, CreateCustomerResponse>();
+            CreateMap<Customers, CreateCustomerResponse>();
         }
     }
 }

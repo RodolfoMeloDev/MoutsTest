@@ -6,13 +6,8 @@ using Ambev.DeveloperEvaluation.Domain.Validation;
 
 namespace Ambev.DeveloperEvaluation.Domain.Entities
 {
-    public class Customer : BaseEntity, ICustomer
+    public class Customers : BaseEntity, ICustomer
     {
-        public Customer()
-        {
-            CreatedAt = DateTime.UtcNow;
-        }
-
         /// <summary>
         /// Gets the customer's full name.
         /// Must not be null or empty.

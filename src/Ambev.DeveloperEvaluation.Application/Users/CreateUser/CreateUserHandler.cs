@@ -29,29 +29,49 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, CreateUserRe
         _passwordHasher = passwordHasher;
     }
 
+    public async Task<CreateUserResult> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+    {
+        var validator = new CreateUserCommandValidator();
+        var validationResult = await validator.ValidateAsync(request, cancellationToken);
+
+        if (!validationResult.IsValid)
+            throw new ValidationException(validationResult.Errors);
+
+        var existingUser = await _userRepository.GetByEmailAsync(request.Email, cancellationToken);
+        if (existingUser != null)
+            throw new InvalidOperationException($"User with email {request.Email} already exists");
+
+        var user = _mapper.Map<User>(request);
+        user.Password = _passwordHasher.HashPassword(request.Password);
+
+        var createdUser = await _userRepository.CreateAsync(user, cancellationToken);
+        var result = _mapper.Map<CreateUserResult>(createdUser);
+        return result;
+    }
+
     /// <summary>
     /// Handles the CreateUserCommand request
     /// </summary>
     /// <param name="command">The CreateUser command</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The created user details</returns>
-    public async Task<CreateUserResult> Handle(CreateUserCommand command, CancellationToken cancellationToken)
-    {
-        var validator = new CreateUserCommandValidator();
-        var validationResult = await validator.ValidateAsync(command, cancellationToken);
+    //public async Task<CreateUserResult> Handle(CreateUserCommand command, CancellationToken cancellationToken)
+    //{
+    //    var validator = new CreateUserCommandValidator();
+    //    var validationResult = await validator.ValidateAsync(command, cancellationToken);
 
-        if (!validationResult.IsValid)
-            throw new ValidationException(validationResult.Errors);
+    //    if (!validationResult.IsValid)
+    //        throw new ValidationException(validationResult.Errors);
 
-        var existingUser = await _userRepository.GetByEmailAsync(command.Email, cancellationToken);
-        if (existingUser != null)
-            throw new InvalidOperationException($"User with email {command.Email} already exists");
+    //    var existingUser = await _userRepository.GetByEmailAsync(command.Email, cancellationToken);
+    //    if (existingUser != null)
+    //        throw new InvalidOperationException($"User with email {command.Email} already exists");
 
-        var user = _mapper.Map<User>(command);
-        user.Password = _passwordHasher.HashPassword(command.Password);
+    //    var user = _mapper.Map<User>(command);
+    //    user.Password = _passwordHasher.HashPassword(command.Password);
 
-        var createdUser = await _userRepository.CreateAsync(user, cancellationToken);
-        var result = _mapper.Map<CreateUserResult>(createdUser);
-        return result;
-    }
+    //    var createdUser = await _userRepository.CreateAsync(user, cancellationToken);
+    //    var result = _mapper.Map<CreateUserResult>(createdUser);
+    //    return result;
+    //}
 }

@@ -7,7 +7,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Validation
     {
         public SaleValidator()
         {
-            RuleFor(sale => sale.OrderSale)
+            RuleFor(sale => sale.DateOrderSale)
            .GreaterThan(DateTime.Today)
            .WithMessage("Order Sale must be less than or equal to today");
 

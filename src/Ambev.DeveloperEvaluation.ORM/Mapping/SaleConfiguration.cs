@@ -19,7 +19,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
 
             builder.HasOne(p => p.Customer)
                    .WithOne(u => u.Sale)
-                   .HasForeignKey<Customer>(p => p.Id);
+                   .HasForeignKey<Customers>(p => p.Id);
 
             builder.Property(u => u.Status)
                 .HasConversion<string>()

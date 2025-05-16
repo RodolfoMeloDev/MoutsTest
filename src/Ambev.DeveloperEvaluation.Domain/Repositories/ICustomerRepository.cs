@@ -13,7 +13,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Repositories
         /// <param name="customer">The customer to create</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>The created customer</returns>
-        Task<Customer> CreateAsync(Customer customer, CancellationToken cancellationToken = default);
+        Task<Customers> CreateAsync(Customers customer, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update customer in the repository
@@ -21,7 +21,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Repositories
         /// <param name="customer">The customer to update</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>The updated customer</returns>
-        Task<Customer> UpdateAsync(Customer customer, CancellationToken cancellationToken = default);
+        Task<Customers> UpdateAsync(Customers customer, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a customer by their unique identifier
@@ -29,7 +29,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Repositories
         /// <param name="id">The unique identifier of the customer</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>The customer if found, null otherwise</returns>
-        Task<Customer?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<Customers?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Deletes a customer from the repository

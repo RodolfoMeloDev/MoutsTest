@@ -26,7 +26,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
         /// <param name="customer">The customer to create</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>The created customer</returns>
-        public async Task<Customer> CreateAsync(Customer customer, CancellationToken cancellationToken = default)
+        public async Task<Customers> CreateAsync(Customers customer, CancellationToken cancellationToken = default)
         {
             await _context.Customers.AddAsync(customer, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
@@ -56,7 +56,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
         /// <param name="id">The unique identifier of the customer</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>The customer if found, null otherwise</returns>
-        public async Task<Customer?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<Customers?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await _context.Customers.FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
         }
@@ -67,7 +67,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
         /// <param name="customer">The customer to update</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>The updated customer</returns>
-        public async Task<Customer> UpdateAsync(Customer customer, CancellationToken cancellationToken = default)
+        public async Task<Customers> UpdateAsync(Customers customer, CancellationToken cancellationToken = default)
         {
             var customerDB = await GetByIdAsync(customer.Id, cancellationToken) ?? 
                 throw new KeyNotFoundException("A chave de identificação do objeto não foi encontrada, não foi possível atualizar as informações.");

@@ -27,7 +27,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// </summary>
         public string CustomerId { get; set; } = string.Empty;
 
-        public Customer? Customer { get; set; }
+        public Customers? Customer { get; set; }
 
         public ICollection<SaleItens>? Itens { get; set; }
 

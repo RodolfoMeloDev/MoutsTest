@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Ambev.DeveloperEvaluation.Domain.Entities;
+using AutoMapper;
 
 namespace Ambev.DeveloperEvaluation.Application.Customer.GetCustomer
 {
@@ -6,7 +7,7 @@ namespace Ambev.DeveloperEvaluation.Application.Customer.GetCustomer
     {
         public GetCustomerProfile()
         {
-            CreateMap<Domain.Entities.Customer, GetCustomerResult>();
+            CreateMap<Customers, GetCustomerResult>();
         }
     }
 }
