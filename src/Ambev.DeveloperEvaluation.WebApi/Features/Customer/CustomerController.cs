@@ -2,15 +2,11 @@
 using Ambev.DeveloperEvaluation.Application.Customer.DeleteCustomer;
 using Ambev.DeveloperEvaluation.Application.Customer.GetCustomer;
 using Ambev.DeveloperEvaluation.Application.Customer.UpdateCustomer;
-using Ambev.DeveloperEvaluation.Application.Users.DeleteUser;
-using Ambev.DeveloperEvaluation.Application.Users.GetUser;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using Ambev.DeveloperEvaluation.WebApi.Features.Customer.CreateCustomer;
 using Ambev.DeveloperEvaluation.WebApi.Features.Customer.DeleteCustomer;
 using Ambev.DeveloperEvaluation.WebApi.Features.Customer.GetCustomer;
 using Ambev.DeveloperEvaluation.WebApi.Features.Customer.UpdateCustomer;
-using Ambev.DeveloperEvaluation.WebApi.Features.Users.DeleteUser;
-using Ambev.DeveloperEvaluation.WebApi.Features.Users.GetUser;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
